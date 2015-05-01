@@ -25,13 +25,13 @@ public class LoginController {
 	@Autowired
 	MemberJoinService service;
 	
-	@RequestMapping(value={"","/"}, method=RequestMethod.GET)
-	public String register() {  
+	@RequestMapping(value={"","/"}, method=RequestMethod.GET) 
+	public String loginPage() {  
 		log.info("#################################################");
 		log.info("로그인 PAGE");
 		log.info("#################################################");
 		
-		return "login/login"; 
+		return "home"; 
 	}
 
 	@RequestMapping(value={"","/"}, method = RequestMethod.POST)
@@ -54,6 +54,7 @@ public class LoginController {
 				return "main/main";
 			}
 		}
+		session.setAttribute("msg", "email 또는 password를 잘못 입력하셨습니다");
 		return "redirect:login";
 		
 //		if ("webapp".equals(member.getEmail()) && "1234".equals(member.getPassword())) {

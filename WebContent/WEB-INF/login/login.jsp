@@ -25,7 +25,7 @@
 <script type="text/javascript">
 	var app = angular.module("myApp", ["ngSanitize", "ngAnimate", "ngRoute"]);
 	app.controller("myController", function($scope) {
-		
+		alert("${fail}");
 	});
 
 </script>
@@ -35,15 +35,12 @@
 
 </head>
 <body data-ng-controller="myController">
-	
+	${sessionScope.msg}
 	<form action="login" method="post">
 		<input type="text" name="email"/><br>
 		<input type="password" name="password"/><br>
 		<input type="submit" value="로그인 ">
 	</form>
-	
-	
-
 </body>
 </html>
 
